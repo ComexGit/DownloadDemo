@@ -56,7 +56,7 @@
         
         __weak typeof(self) weakSelf = self;
         
-        [self.sessionMgr dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        _downloadTask = [self.sessionMgr dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
             
             // 清空长度
             weakSelf.currentLength = 0;
