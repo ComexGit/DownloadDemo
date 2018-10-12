@@ -30,6 +30,7 @@
     if (self = [super init]) {
         self.downloadUrl = url;
         self.savePath = savePath;
+        self.delegate = delegate;
     }
     return self;
 }
