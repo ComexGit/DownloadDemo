@@ -58,10 +58,21 @@
     
     if (sender.selected) {
         
-        [self.sessionMgr resumeTask];
+        if (_downloadWay == DownloadWayURLSession) {
+            [self.sessionMgr resumeTask];
+        }
+        else {
+            [self.networkingMgr resumeTask];
+        }
         
     } else {
-        [self.sessionMgr suspendTask];
+        
+        if (_downloadWay == DownloadWayURLSession) {
+            [self.sessionMgr suspendTask];
+        }
+        else {
+            [self.networkingMgr suspendTask];
+        }
     }
 }
 

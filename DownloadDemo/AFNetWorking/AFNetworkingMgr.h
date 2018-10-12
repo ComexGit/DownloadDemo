@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<AFNetworkingMgrDelegate> delegate;
 
 - (instancetype) initWithDownloadUrl:(NSString*)url savePath:(NSString *)savePath delegate:(id<AFNetworkingMgrDelegate>)delegate;
+- (void)resumeTask;
+- (void)suspendTask;
 
 @end
 

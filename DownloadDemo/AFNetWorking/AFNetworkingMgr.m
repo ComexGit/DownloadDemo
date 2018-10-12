@@ -130,6 +130,22 @@
     return _downloadTask;
 }
 
+- (void)resumeTask {
+    
+    NSInteger currentLength = [self fileLengthForPath:self.savePath];
+    if (currentLength > 0) {  // 继续下载
+        self.currentLength = currentLength;
+    }
+    
+    [self.downloadTask resume];
+}
+
+- (void)suspendTask {
+    
+    [self.downloadTask suspend];
+}
+
+
 - (NSInteger)fileLengthForPath:(NSString *)path {
     
     NSInteger fileLength = 0;
