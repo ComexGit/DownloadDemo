@@ -138,10 +138,10 @@
     // 拼接文件总长度
     self.currentLength += data.length;
     
-//    NSLog(@"%ld",self.currentLength);
+    NSLog(@"%ld",self.currentLength);
     
     __weak typeof(self) weakSelf = self;
-    // 获取主线程，不然无法正确显示进度。
+    
     NSOperationQueue* mainQueue = [NSOperationQueue mainQueue];
     [mainQueue addOperationWithBlock:^{
         

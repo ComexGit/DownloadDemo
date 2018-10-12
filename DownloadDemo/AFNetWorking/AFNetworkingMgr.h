@@ -10,7 +10,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class AFNetworkingMgr;
+
+@protocol AFNetworkingMgrDelegate <NSObject>
+
+- (void) AFNetworkingMgr:(AFNetworkingMgr*)mgr didReceiveDataWithProgress:(double)progress;
+
+@end
+
 @interface AFNetworkingMgr : NSObject
+
+@property (nonatomic, weak) id<AFNetworkingMgrDelegate> delegate;
+
+- (instancetype) initWithDownloadUrl:(NSString*)url savePath:(NSString *)savePath delegate:(id<AFNetworkingMgrDelegate>)delegate;
 
 @end
 
